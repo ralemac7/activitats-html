@@ -9,7 +9,6 @@
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
-        <script src="script.js"></script>
         <h1 align="center">Institut Frederic Mompou</h1>
         <h2 align="center">Sant Vicenç dels Horts</h2>
         <h3 align="center">Pàgina d'inici</h3>
@@ -21,5 +20,26 @@
         <p align="center"><a href="https://agora.xtec.cat/iesfmompou" target="_blank" title="Bloc del centre">Accedir al bloc</a></p>
         <br>
         <p align="center"><em>Creat a <a href="https://maps.app.goo.gl/cVknXCgEsUq7wprS7" target="_blank" title="Veure a Google Maps">l'Institut Frederic Mompou</a></em></p>
+    <script>const list = document.createElement('ul');
+        const info = document.createElement('p');
+        const html = document.querySelector('html');
+        
+        info.textContent = 'Això és una llista dinàmica, clica per crar un punt';
+        
+        document.body.appendChild(info);
+        document.body.appendChild(list);
+        
+        html.onclick = function() {
+          const listItem = document.createElement('li');
+          const listContent = prompt('Quin contingut vols que tingui la llista?');
+          listItem.textContent = listContent;
+          list.appendChild(listItem);
+        
+          listItem.onclick = function(e) {
+            e.stopPropagation();
+            const listContent = prompt('Introdueix un nou contingut');
+            this.textContent = listContent;
+          }
+        }</script>
     </body>
 </html>
